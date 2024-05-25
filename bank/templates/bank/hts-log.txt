@@ -1,0 +1,11 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 16 Feb 2024 08:38:57 at https://themes.pixelstrap.net/pwa/mpay/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://themes.pixelstrap.net/pwa/mpay/ -O1 "C:\Users\DELL\Videos\mpay" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 33 seconds : 230 links scanned, 229 files written (16543237 bytes overall) [14572712 bytes received at 95246 bytes/sec], 2986802 bytes transferred using HTTP compression in 182 files, ratio 30%, 12.1 requests per connection
+(No errors, 0 warnings, 0 messages)

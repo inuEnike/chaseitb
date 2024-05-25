@@ -1,0 +1,1102 @@
+
+<!doctype html>
+{% load static %}
+{%  block content %}
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chaseitb bank</title>
+
+    <link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugin/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugin/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/arafat-font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugin/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- start preloader -->
+    <!--<div class="preloader" id="preloader"></div>-->
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+          <div class="container">
+            <div class="row d-flex header-area">
+              <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                  {% comment %} <img src="{% static 'images/logo.png' %}" width="150px" class="logo" alt="logo"> {% endcomment %}
+                  <h3 class="nav-link active">ChaseITB Bank</h3>
+
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbar-content">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                  <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown main-navbar">
+                      <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside">Product</a>
+                      <ul class="dropdown-menu main-menu shadow">
+                        <li class="dropend sub-navbar">
+                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                              data-bs-auto-close="outside">Account</a>
+                            <ul class="dropdown-menu sub-menu shadow">
+                              <li><a class="nav-link" href="{% url 'account' %}">Account</a></li>
+                              <li><a class="nav-link" href="{% url 'account-details' %}">Account Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropend sub-navbar">
+                          <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside">Loan</a>
+                          <ul class="dropdown-menu sub-menu shadow">
+                            <li><a class="nav-link" href="{% url 'business-loan' %}">Business Loans</a></li>
+                            <li><a class="nav-link" href="{% url 'educations-loan' %}">Educations Loans</a></li>
+                            <li><a class="nav-link" href="{% url 'home-loan' %}>Home Loans</a></li>
+                            <li><a class="nav-link" href="{% url 'car-loan' %}">Car Loans</a></li>
+                            <li><a class="nav-link" href="{% url 'personal-loan' %}">Personal Loans</a></li>
+                          </ul>
+                        </li>
+                        <li><a class="nav-link" href="{% url 'card' %}">Card</a></li>
+                      </ul>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                  </ul>
+                  <div class="right-area header-action d-flex align-items-center">
+                    <a href="{% url 'login' %}" class="cmn-btn">Access Account</a>
+                </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+
+    <!-- banner-section start -->
+    <section class="banner-section inner-banner about">
+        <div class="overlay">
+            <div class="banner-content d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-lg-7 col-md-10">
+                            <div class="main-content">
+                                <h1>About</h1>
+                                <div class="breadcrumb-area">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb d-flex align-items-center">
+                                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner-section end -->
+
+    <!-- About Us In start -->
+    <section class="about-section">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="text-area">
+                            <h5 class="sub-title">About Us</h5>
+                            <h2 class="title">Your ally in achieving ambition beyond borders</h2>
+                            <p>We understand that with global ambition, comes global challenges, and we are here to
+                                bridge the gap by offering seamless cross-border financial services. Consider us your
+                                friendly digital guide to all things finance, helping you make the most of your money.
+                            </p>
+                        </div>
+                        <div class="row cus-mar">
+                            <div class="col-xl-4 col-md-4">
+                                <div class="count-content text-center">
+                                    <div class="count-number">
+                                        <h4 class="counter">98</h4>
+                                        <h4 class="static">%</h4>
+                                    </div>
+                                    <p>Customer satisfaction</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-4">
+                                <div class="count-content text-center">
+                                    <div class="count-number ">
+                                        <h4 class="counter">250</h4>
+                                        <h4 class="static">M</h4>
+                                    </div>
+                                    <p>Monthly active users</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-4">
+                                <div class="count-content text-center">
+                                    <div class="count-number ">
+                                        <h4 class="counter">100</h4>
+                                        <h4 class="static">K</h4>
+                                    </div>
+                                    <p>New Users per week</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-end">
+                        <div class="img-area">
+                            <img class="img-1" src="{% static 'images/about-img-1.png' %}" alt="image">
+                            <img class="img-2" src="{% static 'images/about-img-2.png' %}" alt="image">
+                            <img class="img-3" src="{% static 'images/about-img-3.png' %}" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Us In end -->
+
+    <!-- Our core values In start -->
+    <section class="our-core-values">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Our core values</h5>
+                            <h2 class="title">Our values help us set the bar for good banking high.</h2>
+                            <p>Our values define us. They guide us in building and improving our product, hiring
+                                teammates, and serving our customers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-xl-4 col-md-4">
+                        <div class="single-box">
+                            <div class="icon">
+                                <img src="{% static 'images/icon/core-values-1.png' %}" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Customer First</h5>
+                                <p>We aim to provide our customers with top-notch service that helps them grow their
+                                    business and put their best foot forward.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4">
+                        <div class="single-box">
+                            <div class="icon">
+                                <img src="{% static 'images/icon/core-values-2.png' %}" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Passion over Pedigree</h5>
+                                <p>We hire for passion, because passionate people can overcome any obstacle and acquire
+                                    any knowledge necessary.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4">
+                        <div class="single-box">
+                            <div class="icon">
+                                <img src="{% static 'images/icon/core-values-3.png' %}" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Commitment</h5>
+                                <p>Our first priority is to keep your money safe and secure. Every single aspect of our
+                                    service is optimized to protect and grow your funds!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our core values In end -->
+
+    <!-- Map In start -->
+    <section class="map-section">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-xl-9 col-lg-10">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Our core values</h5>
+                            <h2 class="title">Our values help us set the bar for good banking high.</h2>
+                            <p>Our values define us. They guide us in building and improving our product, hiring
+                                teammates, and serving our customers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="map-area">
+                        <img src="{% static 'images/world-map.png' %}" alt="image">
+                        <div class="element pos-1">
+                            <div class="details">
+                                <p>2715 Ash Dr. San Jose, South Dakota 83475</p>
+                            </div>
+                            <div class="dot-area">
+                                <img src="{% static 'images/icon/maps-dot.png' %}" alt="image">
+                            </div>
+                        </div>
+                        <div class="element pos-2">
+                            <div class="details">
+                                <p>2972 Westheimer Rd. Santa Ana, Illinois 85486</p>
+                            </div>
+                            <div class="dot-area">
+                                <img src="{% static 'images/icon/maps-dot.png' %}" alt="image">
+                            </div>
+                        </div>
+                        <div class="element pos-3">
+                            <div class="details">
+                                <p>2715 Ash Dr. San Jose, South Dakota 83475</p>
+                            </div>
+                            <div class="dot-area">
+                                <img src="{% static 'images/icon/maps-dot.png' %}" alt="image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Map In end -->
+
+    <!-- Our journey In start -->
+    <section class="our-journey">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-xl-9 col-lg-10">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Our journey so far</h5>
+                            <h2 class="title">Everyone has a story behind. Here’s ours!</h2>
+                            <p>For decades, the clearing of financial transactions remained unchanged and
+                                unchallenged.Chaseitb bank provide real-time payment and innovative banking services to their
+                                customers . Our company timeline</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="journey-carousel">
+                        <div class="single">
+                            <div class="single-box">
+                                <div class="top-box d-flex align-items-center">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon/our-journey-1.png' %}" alt="icon">
+                                    </div>
+                                    <h4>2016</h4>
+                                </div>
+                                <div class="text-box">
+                                    <p>Nam blandit volutpat arcu. Nullam vitae elit arcu. Duis nec faucibus sapien. In
+                                        sagittis, mauris vel laoreet elementum</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <div class="top-box d-flex align-items-center">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon/our-journey-2.png' %}" alt="icon">
+                                    </div>
+                                    <h4>2017</h4>
+                                </div>
+                                <div class="text-box">
+                                    <p>Nam blandit volutpat arcu. Nullam vitae elit arcu. Duis nec faucibus sapien. In
+                                        sagittis, mauris vel laoreet elementum</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <div class="top-box d-flex align-items-center">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon/our-journey-3.png' %}" alt="icon">
+                                    </div>
+                                    <h4>2018</h4>
+                                </div>
+                                <div class="text-box">
+                                    <p>Nam blandit volutpat arcu. Nullam vitae elit arcu. Duis nec faucibus sapien. In
+                                        sagittis, mauris vel laoreet elementum</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <div class="top-box d-flex align-items-center">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon/our-journey-4.png' %}" alt="icon">
+                                    </div>
+                                    <h4>2019</h4>
+                                </div>
+                                <div class="text-box">
+                                    <p>Nam blandit volutpat arcu. Nullam vitae elit arcu. Duis nec faucibus sapien. In
+                                        sagittis, mauris vel laoreet elementum</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <div class="top-box d-flex align-items-center">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon/our-journey-3.png' %}" alt="icon">
+                                    </div>
+                                    <h4>2020</h4>
+                                </div>
+                                <div class="text-box">
+                                    <p>Nam blandit volutpat arcu. Nullam vitae elit arcu. Duis nec faucibus sapien. In
+                                        sagittis, mauris vel laoreet elementum</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our journey In end -->
+
+    <!-- Our Amazing Team In start -->
+    <section class="our-team">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-xl-9 col-lg-10">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">The Amazing Team Behind Our Company</h5>
+                            <h2 class="title">The right skills wielded by the right people to make anything possible.
+                            </h2>
+                            <p>Our diversity and youthfulness are the sources of our strength as a team and shape our
+                                views.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xxl-7 col-lg-9 col-md-12">
+                        <ul class="nav nav-tabs mb-60" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="board-tab" data-bs-toggle="tab"
+                                    data-bs-target="#board" type="button" role="tab" aria-controls="board"
+                                    aria-selected="true">Board</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="leaders-tab" data-bs-toggle="tab" data-bs-target="#leaders"
+                                    type="button" role="tab" aria-controls="leaders"
+                                    aria-selected="false">Leaders</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="designers-tab" data-bs-toggle="tab" data-bs-target="#designers"
+                                    type="button" role="tab" aria-controls="designers"
+                                    aria-selected="false">Designers</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="developers-tab" data-bs-toggle="tab" data-bs-target="#developers"
+                                    type="button" role="tab" aria-controls="developers"
+                                    aria-selected="false">Developers</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="hr-tab" data-bs-toggle="tab" data-bs-target="#hr"
+                                    type="button" role="tab" aria-controls="hr"
+                                    aria-selected="false">HR</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="board" role="tabpanel" aria-labelledby="board-tab">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="leaders" role="tabpanel" aria-labelledby="leaders-tab">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="designers" role="tabpanel" aria-labelledby="designers-tab">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="developers" role="tabpanel" aria-labelledby="developers-tab">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="hr" role="tabpanel" aria-labelledby="hr-tab">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="single-box">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/team-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="test-area">
+                                                <h5>Dale Bryant</h5>
+                                                <p>CEO & Founder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Amazing Team In end -->
+
+    <!-- Current Positions In start -->
+    <section class="current-positions">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-xl-9 col-lg-10">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Current Positions</h5>
+                            <h2 class="title">Unlock Your Career at Chaseitb bank</h2>
+                            <p>Grow with us and take your professional life to the next level.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-60">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-item">
+                            <p class="mdr">Management</p>
+                            <h5>Office Manager</h5>
+                            <p>Proin sed eros ac libero auctor egestas. Duis maximus imperdiet ultricies. Donec finibus diam risus</p>
+                            <a href="{% url 'career-single' %}" class="cmn-btn">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-item">
+                            <p class="mdr">Developer</p>
+                            <h5>Senior Backend Developer</h5>
+                            <p>Proin sed eros ac libero auctor egestas. Duis maximus imperdiet ultricies. Donec finibus diam risus</p>
+                            <a href="{% url 'career-single' %}" class="cmn-btn">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-item">
+                            <p class="mdr">Developer</p>
+                            <h5>Jr Frontend Developer</h5>
+                            <p>Proin sed eros ac libero auctor egestas. Duis maximus imperdiet ultricies. Donec finibus diam risus</p>
+                            <a href="{% url 'career-single' %}" class="cmn-btn">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-item">
+                            <p class="mdr">Design</p>
+                            <h5>UI/UX and Product Designer</h5>
+                            <p>Proin sed eros ac libero auctor egestas. Duis maximus imperdiet ultricies. Donec finibus diam risus</p>
+                            <a href="{% url 'career-single' %}" class="cmn-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="bottom-item">
+                            <h3 class="title">Can´t find the perfect position?</h3>
+                            <p>Send us an email anyways! We will save your resume for next time a relevant position opens.We're always looking for talent</p>
+                            <a href="{% url 'contact' %}" class="cmn-btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Current Positions In end -->
+
+    <!-- Get Start In start -->
+    <section class="get-start wow fadeInUp">
+        <div class="overlay">
+            <div class="container">
+                <div class="col-12">
+                    <div class="get-content">
+                        <div class="section-text">
+                            <h3 class="title">Ready to get started?</h3>
+                            <p>It only takes a few minutes to register your FREE Chaseitb bank account.</p>
+                        </div>
+                        <a href="{% url 'register' %}" class="cmn-btn">Open an Account</a>
+                        <img src="{% static 'images/get-start.png' %}" alt="'images">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Get Start In end -->
+
+ <!-- Footer Area Start -->
+    <div class="footer-section">
+        <div class="container pt-120">
+            <div class="row cus-mar pt-120 pb-120 justify-content-between wow fadeInUp">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-6">
+                    <div class="footer-box">
+                        <a href="{% url 'home' %}" class="logo">
+                            <img src="{% static 'css/logo.png' %}" alt="logo">
+                        </a>
+                        <p>A modern, technology-first bank built for you and your growing business.</p>
+                        <div class="social-link d-flex align-items-center">
+                            <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                            <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                            <a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-6">
+                    <div class="footer-box">
+                        <h5>Company</h5>
+                        <ul class="footer-link">
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'about' %}">Awards</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-6">
+                    <div class="footer-box">
+                        <h5>Useful Links</h5>
+                        <ul class="footer-link">
+                            <li><a href="{% url 'home-loan' %}">Home Loan</a></li>
+                            <li><a href="{% url 'car-loan' %}">Car Loan</a></li>
+                            <li><a href="{% url 'business-loan' %}">Business Loan</a></li>
+    
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-6">
+                    <div class="footer-box">
+                        <h5>Support</h5>
+                        <ul class="footer-link">
+                            <li>contact@oceancredex.com</span></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-8">
+                    <div class="footer-box">
+                        <h5>Subscribe</h5>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="Enter Your Email address">
+                                <button class="cmn-btn">Subscribe</button>
+                            </div>
+                        </form>
+                        <p>Get the latest updates via email. Any time you may unsubscribe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-bottom">
+                        <div class="left">
+                            <p> Copyright © <a href="{% url 'home' %}">Chaseitb bank</a> 
+                                
+                            </p>
+                        </div>
+                        <div class="right">
+                            <a href="{% url 'privacy-policy' %}" class="cus-bor">Privacy </a>
+                            <a href="{% url 'terms-conditions' %}">Terms &amp; Condition </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="img-area">
+            <img src="{% static 'images/footer-Illu-left.png' %}" class="left" alt="Images">
+            <img src="{% static 'images/footer-Illu-right.png' %}" class="right" alt="Images">
+        </div>
+    </div>
+    <!-- Footer Area End -->
+
+    <!--==================================================================-->
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.html"></script><script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/fontawesome.js' %}"></script>
+    <script src="{% static 'js/slick.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'css/owl.carousel.min.js' %}" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+          $(".owl-carousel").owlCarousel({
+            margin: 10,
+            loop: true,
+            autoplay:true,
+            responsive: {
+              0: {
+                items: 1
+              },
+              600: {
+                items: 1
+              },
+              1000: {
+                items: 1
+              }
+            }
+          });
+        });
+    </script>
+</body>
+
+{%  endblock content %}
+
+</html>

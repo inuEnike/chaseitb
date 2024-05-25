@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+{% load static %} {% block content %}
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="mpay" />
+    <meta name="keywords" content="mpay" />
+    <meta name="author" content="mpay" />
+    <link rel="manifest" href="{% static 'manifest.json' %}" />
+    <link
+      rel="icon"
+      href="{% static 'assets/images/logo/favicon.png' %}"
+      type="image/x-icon"
+    />
+    <title>mPay App</title>
+    <link
+      rel="apple-touch-icon"
+      href="{% static 'assets/images/logo/favicon.png' %}"
+    />
+    <meta name="theme-color" content="#122636" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="mpay" />
+    <meta
+      name="msapplication-TileImage"
+      content="{% static 'assets/images/logo/favicon.png' %}"
+    />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- bootstrap css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/bootstrap.min.css' %}"
+    />
+
+    <!-- swiper css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/swiper-bundle.min.css' %}"
+    />
+
+    <!-- Theme css -->
+    <link
+      rel="stylesheet"
+      id="change-link"
+      type="text/css "
+      href="{% static 'assets/css/style.css' %}"
+    />
+
+    <style>
+      .who {
+        font-size: 12%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- header start -->
+    <header class="section-t-space">
+      <div class="custom-container">
+        <div class="header-panel">
+          <a href="{% url 'dashboard' %}" class="back-btn">
+            <i class="icon" data-feather="arrow-left"></i>
+          </a>
+          <h2>My cards</h2>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+    <!-- cards section starts -->
+    <section class="section-b-space">
+      <div class="custom-container">
+        <ul class="card-list">
+          <li class="credit-card-box color1">
+            <div class="card-logo">
+              {% comment %}
+              <img
+                class="img-fluid"
+                src="{% static 'assets/images/svg/logo1.svg' %}"
+                alt="logo1"
+              />
+              {% endcomment %}
+              <h3 class="nav-link active">ChaseITB Bank</h3>
+
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="back-btn"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="icon" data-feather="more-horizontal"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#edit-card"
+                      data-bs-toggle="modal"
+                      >Edit</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#delate"
+                      data-bs-toggle="modal"
+                      >Remove</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <h6 class="card-number">{{request.user.card.card_number}}</h6>
+                <h5 class="card-name">
+                  {{user.first_name}} {{user.last_name}}
+                </h5>
+              </div>
+              <img
+                class="img-fluid chip"
+                src="{% static 'assets/images/svg/card-chip.svg' %}"
+                alt="card-chip"
+              />
+            </div>
+            <div class="d-flex justify-content-between">
+              <h2 class="card-amount">
+                {{request.user.deposit.currency}}{{request.user.deposit.main_balance}}
+              </h2>
+              <div class="card-date w-100">
+                <h6>Exp. date</h6>
+                <h6 class="text-white fw-semibold mt-1">
+                  {{request.user.card.exp_date}}
+                </h6>
+              </div>
+              <div class="card-numbers w-100">
+                <h6 class="cvv-code">Cvv</h6>
+                <h6 class="text-white fw-semibold mt-1">
+                  {{request.user.card.cvv}}
+                </h6>
+              </div>
+            </div>
+          </li>
+
+          <li class="credit-card-box color2">
+            <div class="card-logo">
+              <img
+                class="img-fluid"
+                src="{% static 'assets/images/svg/logo1.svg' %}"
+                alt="logo1"
+              />
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="back-btn"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="icon" data-feather="more-horizontal"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#edit-card"
+                      data-bs-toggle="modal"
+                      >Edit</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#delate"
+                      data-bs-toggle="modal"
+                      >Remove</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <h6 class="card-number">{{request.user.card.card_number}}</h6>
+                <h5 class="card-name">
+                  {{user.first_name}} {{user.last_name}}
+                </h5>
+              </div>
+              <img
+                class="img-fluid chip"
+                src="{% static 'assets/images/svg/card-chip.svg' %}"
+                alt="card-chip"
+              />
+            </div>
+            <div class="d-flex justify-content-between">
+              <h2 class="card-amount">
+                {{request.user.deposit.currency}}{{request.user.deposit.main_balance}}
+              </h2>
+              <div class="card-date w-100">
+                <h6>Exp. date</h6>
+                <h6 class="text-white fw-semibold mt-1">
+                  {{request.user.card.exp_date}}
+                </h6>
+              </div>
+              <div class="card-numbers w-100">
+                <h6 class="cvv-code">Cvv</h6>
+                <h6 class="text-white fw-semibold mt-1">
+                  {{request.user.card.cvv}}
+                </h6>
+              </div>
+            </div>
+          </li>
+          <li class="credit-card-box color3">
+            <div class="card-logo">
+              <img
+                class="img-fluid"
+                src="{% static 'assets/images/svg/logo1.svg' %}"
+                alt="logo1"
+              />
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="back-btn"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="icon" data-feather="more-horizontal"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#edit-card"
+                      data-bs-toggle="modal"
+                      >Edit</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#delate"
+                      data-bs-toggle="modal"
+                      >Remove</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <h6 class="card-number">{{request.user.card.card_number}}</h6>
+                <h5 class="card-name">
+                  {{user.first_name}} {{user.last_name}}
+                </h5>
+              </div>
+              <img
+                class="img-fluid chip"
+                src="{% static 'assets/images/svg/card-chip.svg' %}"
+                alt="card-chip"
+              />
+            </div>
+            <div class="d-flex justify-content-between">
+              <h2 class="card-amount">
+                {{request.user.deposit.currency}}{{request.user.deposit.main_balance}}
+              </h2>
+              <div class="card-date w-100">
+                <h6>Exp. date</h6>
+                <h6 class="text-white fw-semibold mt-1">
+                  {{request.user.card.exp_date}}
+                </h6>
+              </div>
+              <div class="card-numbers w-100">
+                <h6 class="cvv-code">Cvv</h6>
+                <h6 class="text-white fw-semibold mt-1">
+                  {{request.user.card.cvv}}
+                </h6>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- cards section end -->
+
+    <!-- edit card modal starts -->
+    <div class="modal add-money-modal fade" id="edit-card" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Edit Card</h2>
+          </div>
+          <form method="post" class="auth-form pt-0 mt-3" target="_blank">
+            <div class="form-group">
+              {% csrf_token %}
+              <div class="who">{{ form.as_p }}</div>
+            </div>
+
+            <button name="submit" class="btn theme-btn w-100">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- edit card modal end -->
+
+    <!-- delate card modal start -->
+    <div class="modal error-modal fade" id="delate" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="error-img">
+              <img
+                class="img-fluid"
+                src="{% static 'assets/images/svg/delate.svg' %}"
+                alt="delate"
+              />
+            </div>
+            <h3>Are you sure you want to delete this card ?</h3>
+            <a
+              href="#done-delate"
+              class="btn theme-btn successfully w-100"
+              data-bs-toggle="modal"
+              >Delete card</a
+            >
+          </div>
+          <button type="button" class="btn close-btn" data-bs-dismiss="modal">
+            <i class="icon" data-feather="x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- delate card modal end -->
+
+    <!--successful delate card modal start -->
+    <div class="modal error-modal fade" id="done-delate" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Successfully Delete</h2>
+          </div>
+          <div class="modal-body">
+            <div class="error-img">
+              <img
+                class="img-fluid"
+                src="{% static 'assets/images/svg/delate.svg' %}"
+                alt="delate"
+              />
+            </div>
+            <h3>Are you sure you want to delete this card ?</h3>
+          </div>
+          <button type="button" class="btn close-btn" data-bs-dismiss="modal">
+            <i class="icon" data-feather="x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- successful delate card modal end -->
+    <script>
+      /* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+//We start indexing at one because CSRF_token is considered and input field 
+*/
+
+      //Query All input fields
+      var form_fields = document.getElementsByTagName("input");
+      form_fields[1].placeholder = "Name..";
+      form_fields[2].placeholder = "Card Type..";
+      form_fields[3].placeholder = "Card number..";
+      form_fields[4].placeholder = "Exp: date...";
+      form_fields[5].placeholder = "Cvv...";
+
+      for (var field in form_fields) {
+        form_fields[field].className += " form-control";
+      }
+    </script>
+    <!-- swiper js -->
+    <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/custom-swiper.js' %}"></script>
+
+    <!-- feather js -->
+    <script src="{% static 'assets/js/feather.min.js' %}"></script>
+    <script src="{% static 'assets/js/custom-feather.js' %}"></script>
+
+    <!-- bootstrap js -->
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- script js -->
+    <script src="{% static 'assets/js/script.js' %}"></script>
+  </body>
+
+  {% endblock content %}
+</html>

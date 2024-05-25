@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> PIN Verfication</title>
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="{% static 'css/style7.css' %}">
+<link rel="stylesheet" href="{% static 'css/style8.css' %}">
+
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+</head>
+<body class="main-layout">
+  <div class="loader_bg">
+    <div class="loader"><div class="ring">Loading
+      <span></span>
+    </div></div>
+</div>
+<!-- partial:index.partial.html -->
+<div class="device">
+  <div class="device-bezel">
+    <div class="device-viewport">
+      <!-- Begin custom content -->
+      <div class="content">
+        <div class="body-content">
+          <h1 style="font-size: small;">Are you sure you want to make this transaction</h1>
+          <a href="{% url 'pay-successfully' %}"> <button id="reset-button">Yes!</button></a>
+        </div>
+        <div class="body-content">
+
+          <a  style="color: red;" href="{% url 'dashboard' %}"> <button >No!</button></a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pin-info">
+          <h1 class="page-title">Enter Your PIN</h1>
+        </div>
+        <div class="pin-display">
+          <div class="circle-lock--container">
+            <div class="circle-lock">
+              <i class="material-icons lock-icon">lock</i>
+            </div>
+          </div>
+          <div class="confirmation-dots">
+            <svg>
+              <g>
+                <circle class="pin-circle" cx="10" cy="10" r="8"></circle>
+                <circle class="pin-circle" cx="50" cy="10" r="8"></circle>
+                <circle class="pin-circle" cx="90" cy="10" r="8"></circle>
+                <circle class="pin-circle" cx="130" cy="10" r="8"></circle>
+              </g>
+            </svg>
+          </div>
+          <div class="keypad">
+            <div class="keypad--row">
+              <div class="keypad--button" data-value="1">1</div>
+              <div class="keypad--button" data-value="2">2</div>
+              <div class="keypad--button" data-value="3">3</div>
+            </div>
+            <div class="keypad--row">
+              <div class="keypad--button" data-value="4">4</div>
+              <div class="keypad--button" data-value="5">5</div>
+              <div class="keypad--button" data-value="6">6</div>
+            </div>
+            <div class="keypad--row">
+              <div class="keypad--button" data-value="7">7</div>
+              <div class="keypad--button" data-value="8">8</div>
+              <div class="keypad--button" data-value="9">9</div>
+            </div>
+            <div class="keypad--row">
+              <div class="keypad--button keyboard--button__back-arrow"><i class="material-icons">arrow_back</i></div>
+              <div class="keypad--button" data-value="0">0</div>
+              <div class="keypad--button keyboard--button__x">x</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end custom content -->
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js'></script>
+     <!-- Javascript files-->
+   <script src="{% static 'js/pin/jquery.min.js' %} "></script>
+    <script src="{% static 'js/pin/custom.js' %} "></script>
+  <script>
+      (function () {
+  const correctPin = "{{request.user.pin.pin}}";
+  let disableInput = false;
+  _pinArray = [];
+
+  function reset() {
+    closeLock().then(() => {
+      disableInput = false;
+      _pinArray = [];
+      bindPinToDisplay(_pinArray);
+    });
+  }
+
+  function closeLock() {
+    const topSection = document.querySelector(".pin-info");
+    const bottomSection = document.querySelector(".pin-display");
+
+    const promises = [
+    anime({
+      targets: bottomSection,
+      translateY: "0%",
+      duration: 600,
+      easing: "easeOutCubic" }).
+    finished,
+    anime({
+      targets: topSection,
+      translateY: "0%",
+      duration: 600,
+      easing: "easeOutCubic" }).
+    finished];
+
+
+    return Promise.all(promises);
+  }
+  function openLock() {
+    const topSection = document.querySelector(".pin-info");
+    const bottomSection = document.querySelector(".pin-display");
+
+    const promises = [
+    anime({
+      targets: bottomSection,
+      translateY: "125%",
+      duration: 600,
+      easing: "easeInCubic" }).
+    finished,
+    anime({
+      targets: topSection,
+      translateY: "-101%",
+      duration: 600,
+      easing: "easeInCubic" }).
+    finished];
+
+
+    return Promise.all(promises);
+  }
+
+  function errorShake() {
+    return Promise.resolve();
+  }
+  function bindPinToDisplay(pinArray, pinStatus) {
+    document.querySelectorAll(".pin-circle").forEach((el, index) => {
+      if (pinStatus === "success") {
+        el.classList.add("success");
+      } else if (pinStatus === "error") {
+        el.classList.add("error");
+      } else if (index > pinArray.length - 1) {
+        el.classList.remove("entered");
+        el.classList.remove("success");
+        el.classList.remove("error");
+      } else {
+        el.classList.add("entered");
+      }
+    });
+
+    if (pinStatus === "error") {
+      document.querySelector(".confirmation-dots").classList.add("error");
+    } else {
+      document.querySelector(".confirmation-dots").classList.remove("error");
+    }
+  }
+
+  function evaluatePin(pinArray) {
+    const enteredPin = pinArray.join("");
+    if (enteredPin === correctPin) {
+      disableInput = true;
+      setTimeout(() => {
+        bindPinToDisplay(pinArray, "success");
+        setTimeout(() => {
+          openLock();
+        }, 500);
+      }, 250);
+      console.log("correct PIN");
+    } else {
+      disableInput = true;
+      setTimeout(() => {
+        bindPinToDisplay(pinArray, "error");
+        setTimeout(() => {
+          _pinArray = [];
+          bindPinToDisplay(_pinArray);
+          disableInput = false;
+        }, 350);
+      }, 250);
+    }
+  }
+
+  function initKeypad() {
+    document.querySelectorAll(".keypad--button[data-value]").forEach(el => {
+      el.addEventListener("click", evt => {
+        if (disableInput) {
+          return;
+        }
+        const value = evt.target.attributes["data-value"].value;
+        if (_pinArray.length < 4) {
+          _pinArray.push(value);
+          bindPinToDisplay(_pinArray);
+          if (_pinArray.length === 4) {
+            evaluatePin(_pinArray);
+          }
+        }
+      });
+    });
+
+    document.
+    querySelector(".keyboard--button__back-arrow").
+    addEventListener("click", () => {
+      if (disableInput) {
+        return;
+      }
+      _pinArray.pop();
+      bindPinToDisplay(_pinArray);
+    });
+
+    document.
+    querySelector(".keyboard--button__x").
+    addEventListener("click", () => {
+      if (disableInput) {
+        return;
+      }
+      _pinArray = [];
+      bindPinToDisplay(_pinArray);
+    });
+
+    document.querySelector('#reset-button').addEventListener('click', () => {
+      reset();
+    });
+  }
+
+  function initLayout() {
+    const containerHeight = document.querySelector(".container").offsetHeight;
+    const keypadHeight = document.querySelector(".pin-display").offsetHeight;
+    document.querySelector(".pin-info").style.height = `${containerHeight -
+    keypadHeight +
+    1}px`;
+  }
+
+  function init() {
+    initKeypad();
+    initLayout();
+  }
+
+  init();
+})();
+    </script>
+</body>
+
+</html>

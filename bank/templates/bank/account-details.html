@@ -1,0 +1,603 @@
+
+<!doctype html>
+{% load static %}
+{%  block content %}
+<html class="no-js' %}" lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chaseitb bank</title>
+
+    <link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/arafat-font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- start preloader -->
+    <!--<div class="preloader" id="preloader"></div>-->
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+          <div class="container">
+            <div class="row d-flex header-area">
+              <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                  {% comment %} <img src="{% static 'images/logo.png' %}" width="150px" class="logo" alt="logo"> {% endcomment %}
+                  <h3 class="nav-link active">ChaseITB Bank</h3>
+
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbar-content">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                  <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown main-navbar">
+                      <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside">Product</a>
+                      <ul class="dropdown-menu main-menu shadow">
+                        <li class="dropend sub-navbar">
+                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                              data-bs-auto-close="outside">Account</a>
+                            <ul class="dropdown-menu sub-menu shadow">
+                              <li><a class="nav-link" href="{% url 'account' %}">Account</a></li>
+                              <li><a class="nav-link" href="{% url 'account-details' %}">Account Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropend sub-navbar">
+                          <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside">Loan</a>
+                          <ul class="dropdown-menu sub-menu shadow">
+                            <li><a class="nav-link" href="{% url 'business-loan' %}">Business Loans</a></li>
+                            <li><a class="nav-link" href="{% url 'educations-loan' %}">Educations Loans</a></li>
+                            <li><a class="nav-link" href="{% url 'home-loan' %}">Home Loans</a></li>
+                            <li><a class="nav-link" href="{% url 'car-loan' %}">Car Loans</a></li>
+                            <li><a class="nav-link" href="{% url 'personal-loan' %}">Personal Loans</a></li>
+                          </ul>
+                        </li>
+                        <li><a class="nav-link" href="{% url 'card' %}">Card</a></li>
+                      </ul>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                  </ul>
+                  <div class="right-area header-action d-flex align-items-center">
+                    <a href="{% url 'login' %}" class="cmn-btn">Access Account</a>
+                </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+
+
+    <!-- banner-section start -->
+    <section class="banner-section inner-banner account-details">
+        <div class="overlay">
+            <div class="banner-content d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-lg-7 col-md-10">
+                            <div class="main-content">
+                                <h1>Saving Account</h1>
+                                <div class="breadcrumb-area">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb d-flex align-items-center">
+                                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript:void(0)">Product</a></li>
+                                            <li class="breadcrumb-item"><a href="{% url 'account' %}">Account</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Saving Account</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner-section end -->
+
+    <!-- Features In start -->
+    <section class="saving-account features-section">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 cus-ord">
+                        <div class="img-area">
+                            <img src="{% static 'images/saving-account-Illu.png' %}" alt="image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="top-section">
+                            <h5 class="sub-title">Secure & Grow Your Savings</h5>
+                            <h2 class="title">Savings Accounts Made for You</h2>
+                            <p>Helping you save for your goals sooner, with accounts free from account keeping,
+                                management, and annual fees.</p>
+                            <ul class="list">
+                                <li class="list-item d-flex align-items-center">
+                                    <span class="check d-flex align-items-center justify-content-center">
+                                        <img src="{% static 'images/icon/check.png' %}" alt="icon">
+                                    </span>
+                                    <span>Free deposits and withdrawals</span>
+                                </li>
+                                <li class="list-item d-flex align-items-center">
+                                    <span class="check d-flex align-items-center justify-content-center">
+                                        <img src="{% static 'images/icon/check.png' %}" alt="icon">
+                                    </span>
+                                    <span>Your savings are protected at all times</span>
+                                </li>
+                                <li class="list-item d-flex align-items-center">
+                                    <span class="check d-flex align-items-center justify-content-center">
+                                        <img src="{% static 'images/icon/check.png' %}" alt="icon">
+                                    </span>
+                                    <span>Be eligible for a dividend, when paid</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features In end -->
+
+    <!-- Call to action In start -->
+    <section class="call-action">
+        <div class="overlay pt-120">
+            <div class="container wow fadeInUp">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="main-content">
+                            <div class="section-header text-center">
+                                <h2 class="title">Save With Us</h2>
+                                <p>Chaseitb bank’s range of savings account offers tailor made saving solutions for you</p>
+                            </div>
+                            <div class="bottom-area text-center">
+                                <a href="{% url 'register' %}" class="cmn-btn">Open Account</a>
+                                <a href="{% url 'contact' %}" class="cmn-btn second">Get in touch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call to action In end -->
+
+    <!-- Grow Your Confidence In start -->
+    <section class="grow-confidence">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Grow Your Confidence</h5>
+                            <h2 class="title">Choose the account that matches your needs</h2>
+                            <p>We have a fine range of accounts to help you manage your finances seamlessly</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-plan text-center">
+                            <div class="introd-area">
+                                <div class="content">
+                                    <p class="mdr">You could earn:</p>
+                                    <h4>
+                                        <span class="number">0.25</span>
+                                        <span class="right">
+                                            <span>%</span>
+                                            <span class="mdr">p.a</span>
+                                        </span>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="head-area">
+                                <h5>Easy Invest</h5>
+                            </div>
+                            <div class="plan-list">
+                                <div class="single">
+                                    <h6>Fees</h6>
+                                    <p>$0 Account keeping fees</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Interest</h6>
+                                    <p>Paid monthly</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Regular Deposits</h6>
+                                    <p>No minimum balance</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Access Your Funds</h6>
+                                    <p>Online only</p>
+                                </div>
+                            </div>
+                            <div class="btn-area">
+                                <a href="{% url 'register' %}" class="cmn-btn">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-plan text-center">
+                            <div class="introd-area">
+                                <div class="content">
+                                    <p class="mdr">You could earn:</p>
+                                    <h4>
+                                        <span class="number">0.50</span>
+                                        <span class="right">
+                                            <span>%</span>
+                                            <span class="mdr">p.a</span>
+                                        </span>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="head-area">
+                                <h5>Bonus Saver</h5>
+                            </div>
+                            <div class="plan-list">
+                                <div class="single">
+                                    <h6>Fees</h6>
+                                    <p>$0 Account keeping fees</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Interest</h6>
+                                    <p>Paid monthly</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Regular Deposits</h6>
+                                    <p>No minimum balance</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Access Your Funds</h6>
+                                    <p>Online only</p>
+                                </div>
+                            </div>
+                            <div class="btn-area">
+                                <a href="{% url 'register' %}" class="cmn-btn">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-plan text-center">
+                            <div class="introd-area">
+                                <div class="content">
+                                    <p class="mdr">You could earn:</p>
+                                    <h4>
+                                        <span class="number">0.70</span>
+                                        <span class="right">
+                                            <span>%</span>
+                                            <span class="mdr">p.a</span>
+                                        </span>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="head-area">
+                                <h5>Pension Plus</h5>
+                            </div>
+                            <div class="plan-list">
+                                <div class="single">
+                                    <h6>Fees</h6>
+                                    <p>$0 Account keeping fees</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Interest</h6>
+                                    <p>Paid monthly</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Regular Deposits</h6>
+                                    <p>No minimum balance</p>
+                                </div>
+                                <div class="single">
+                                    <h6>Access Your Funds</h6>
+                                    <p>Online only</p>
+                                </div>
+                            </div>
+                            <div class="btn-area">
+                                <a href="{% url 'register' %}" class="cmn-btn">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Grow Your Confidence In end -->
+
+    <!-- How it works In start -->
+    <section class="how-works">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">A Better Way to Save</h5>
+                            <h2 class="title">How it works</h2>
+                            <p>It's easier than you think. Follow the following simple easy steps</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-md-6">
+                        <div class="nav nav-tabs" role="tablist">
+                            <div class="nav-link active" id="nav-eligibility-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-eligibility" role="tab" aria-controls="nav-eligibility"
+                                aria-selected="true">
+                                <div class="row">
+                                    <div class="col-lg-2 col-3">
+                                        <div class="left-side">
+                                            <div class="number">
+                                                <h4>1</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-9">
+                                        <div class="right-side">
+                                            <h4>Check Your Eligibility</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in metus
+                                                justo.consectetur
+                                                adipiscing elit. Morbi in metus justo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-link" id="nav-account-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-account" role="tab" aria-controls="nav-account"
+                                aria-selected="false">
+                                <div class="row">
+                                    <div class="col-lg-2 col-3">
+                                        <div class="left-side">
+                                            <div class="number">
+                                                <h4>2</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-9">
+                                        <div class="right-side">
+                                            <h4>Open Your Account</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in metus
+                                                justo.consectetur
+                                                adipiscing elit. Morbi in metus justo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-link" id="nav-saving-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-saving" role="tab" aria-controls="nav-saving"
+                                aria-selected="false">
+                                <div class="row">
+                                    <div class="col-lg-2 col-3">
+                                        <div class="left-side">
+                                            <div class="number">
+                                                <h4>3</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-9">
+                                        <div class="right-side">
+                                            <h4>Start Saving</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in metus
+                                                justo.consectetur
+                                                adipiscing elit. Morbi in metus justo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-link last" id="nav-rewarded-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-rewarded" role="tab" aria-controls="nav-rewarded"
+                                aria-selected="false">
+                                <div class="row">
+                                    <div class="col-lg-2 col-3">
+                                        <div class="left-side">
+                                            <div class="number">
+                                                <h4>4</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-9">
+                                        <div class="right-side">
+                                            <h4>Get rewarded and watch your savings grow</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in metus
+                                                justo.consectetur
+                                                adipiscing elit. Morbi in metus justo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 justify-content-end d-flex align-items-center">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="nav-eligibility" role="tabpanel"
+                                aria-labelledby="nav-eligibility-tab">
+                                <img src="{% static 'images/how-works-1.png' %}" alt="image">
+                            </div>
+                            <div class="tab-pane fade" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
+                                <img src="{% static 'images/how-works-2.png' %}" alt="image">
+                            </div>
+                            <div class="tab-pane fade" id="nav-saving" role="tabpanel" aria-labelledby="nav-saving-tab">
+                                <img src="{% static 'images/how-works-3.png' %}" alt="image">
+                            </div>
+                            <div class="tab-pane fade" id="nav-rewarded" role="tabpanel" aria-labelledby="nav-rewarded-tab">
+                                <img src="{% static 'images/how-works-4.png' %}" alt="image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How it works In end -->
+
+   
+    <!-- Get Start In start -->
+    <section class="get-start wow fadeInUp">
+        <div class="overlay">
+            <div class="container">
+                <div class="col-12">
+                    <div class="get-content">
+                        <div class="section-text">
+                            <h3 class="title">Ready to get started?</h3>
+                            <p>It only takes a few minutes to register your FREE Chaseitb bank account.</p>
+                        </div>
+                        <a href="{% url 'register' %}" class="cmn-btn">Open an Account</a>
+                        <img src="{% static 'images/get-start.png' %}" alt="{% static 'images">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Get Start In end -->
+
+    <!-- Footer Area Start -->
+    <div class="footer-section">
+        <div class="container pt-120">
+            <div class="row cus-mar pt-120 pb-120 justify-content-between wow fadeInUp">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-6">
+                    <div class="footer-box">
+                        <a href="{% url 'home' %}" class="logo">
+                            <img src="{% static 'images/logo.png' %}" alt="logo">
+                        </a>
+                        <p>A modern, technology-first bank built for you and your growing business.</p>
+                        <div class="social-link d-flex align-items-center">
+                            <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                            <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                            <a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-6">
+                    <div class="footer-box">
+                        <h5>Company</h5>
+                        <ul class="footer-link">
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'about' %}">Awards</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-6">
+                    <div class="footer-box">
+                        <h5>Useful Links</h5>
+                        <ul class="footer-link">
+                            <li><a href="{% url 'home-loan' %}">Home Loan</a></li>
+                            <li><a href="{% url 'car-loan' %}">Car Loan</a></li>
+                            <li><a href="{% url 'business-loan' %}">Business Loan</a></li>
+    
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-6">
+                    <div class="footer-box">
+                        <h5>Support</h5>
+                        <ul class="footer-link">
+                            <li>contact@oceancredex.com</span></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-8">
+                    <div class="footer-box">
+                        <h5>Subscribe</h5>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="Enter Your Email address">
+                                <button class="cmn-btn">Subscribe</button>
+                            </div>
+                        </form>
+                        <p>Get the latest updates via email. Any time you may unsubscribe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-bottom">
+                        <div class="left">
+                            <p> Copyright © <a href="{% url 'home' %}">Chaseitb bank</a> 
+                                
+                            </p>
+                        </div>
+                        <div class="right">
+                            <a href="{% url 'privacy-policy' %}" class="cus-bor">Privacy </a>
+                            <a href="{% url 'terms-conditions' %}">Terms &amp; Condition </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="img-area">
+            <img src="{% static 'images/footer-Illu-left.png' %}" class="left" alt="Images">
+            <img src="{% static 'images/footer-Illu-right.png' %}" class="right" alt="Images">
+        </div>
+    </div>
+    <!-- Footer Area End -->
+
+    <!--==================================================================-->
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.html"></script><script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/fontawesome.js' %}"></script>
+    <script src="{% static 'js/slick.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'css/owl.carousel.min.js' %}" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+          $(".owl-carousel").owlCarousel({
+            margin: 10,
+            loop: true,
+            autoplay:true,
+            responsive: {
+              0: {
+                items: 1
+              },
+              600: {
+                items: 1
+              },
+              1000: {
+                items: 1
+              }
+            }
+          });
+        });
+    </script>
+</body>
+{%  endblock content %}
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+{% load static %} {% block content %}
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chaseitb bank" />
+    <meta name="keywords" content="Chaseitb bank" />
+    <meta name="author" content="Chaseitb bank" />
+    <link rel="manifest" href="{% static 'manifest.json' %}" />
+    <link
+      rel="icon"
+      href="{% static 'assets/images/logo/favicon.png' %}"
+      type="image/x-icon"
+    />
+    <title>Chaseitb bank App</title>
+    <link
+      rel="apple-touch-icon"
+      href="{% static 'assets/images/logo/favicon.png' %}"
+    />
+    <meta name="theme-color" content="#122636" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Chaseitb bank" />
+    <meta
+      name="msapplication-TileImage"
+      content="{% static 'assets/images/logo/favicon.png' %}"
+    />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- iconsax css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/iconsax.css' %}"
+    />
+
+    <!-- bootstrap css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/bootstrap.min.css' %}"
+    />
+
+    <!-- swiper css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/swiper-bundle.min.css' %}"
+    />
+
+    <!-- Theme css -->
+    <link
+      rel="stylesheet"
+      id="change-link"
+      type="text/css "
+      href="{% static 'assets/css/style.css' %}"
+    />
+  </head>
+
+  <body>
+    <!-- side bar start -->
+    <div
+      class="offcanvas sidebar-offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvasLeft"
+    >
+      <div class="offcanvas-header sidebar-header">
+        <div class="sidebar-logo">
+          <img
+            class="img-fluid logo"
+            src="{% static 'assets/images/logo/logo.png' %}"
+            alt="logo"
+          />
+        </div>
+        <div class="balance">
+          <img
+            class="img-fluid balance-bg"
+            src="{% static 'assets/images/background/auth-bg.jpg' %}"
+            alt="auth-bg"
+          />
+          <h5>Balance</h5>
+          <h2>
+            {{request.user.deposit.currency}}
+            {{request.user.deposit.main_balance}}
+          </h2>
+        </div>
+      </div>
+      <div class="offcanvas-body">
+        <div class="sidebar-content">
+          <ul class="link-section">
+            <li>
+              <a href="{% url 'bill' %}" class="pages">
+                <i class="sidebar-icon" data-feather="credit-card"></i>
+                <h3>Bill</h3>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'crypto' %}" class="pages">
+                <i class="sidebar-icon" data-feather="dollar-sign"></i>
+                <h3>Crypto</h3>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'transfer' %}" class="pages">
+                <i class="sidebar-icon" data-feather="repeat"></i>
+                <h3>Transfer</h3>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'withdraw' %}" class="pages">
+                <i class="sidebar-icon" data-icon="bank"></i>
+                <h3>Withdraw</h3>
+              </a>
+            </li>
+
+            <li>
+              <a href="{% url 'profile' %}" class="pages">
+                <i class="sidebar-icon" data-feather="user"></i>
+                <h3>Profile</h3>
+              </a>
+            </li>
+
+            <li>
+              <a href="{% url 'logout' %}" class="pages">
+                <i class="sidebar-icon" data-feather="log-out"></i>
+                <h3>Log out</h3>
+              </a>
+            </li>
+          </ul>
+          <div class="mode-switch">
+            <ul class="switch-section">
+              <li>
+                <h3>Dark</h3>
+                <div class="switch-btn">
+                  <input id="dark-switch" type="checkbox" />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- side bar end -->
+
+    <!-- header start -->
+    <header class="section-t-space">
+      <div class="custom-container">
+        <div class="header-panel">
+          <a
+            class="sidebar-btn"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasLeft"
+          >
+            <i class="menu-icon" data-feather="menu"></i>
+          </a>
+          <h2>Profile</h2>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+    <!-- profile section start -->
+    <section class="section-b-space">
+      <div class="custom-container">
+        <div class="profile-section">
+          <div class="profile-banner">
+            <div class="profile-image">
+              <img
+                class="img-fluid profile-pic"
+                src="{{request.user.profile.profile_pic.url}}"
+                alt="p3"
+              />
+            </div>
+          </div>
+          <h2>{{user.first_name}} {{user.last_name}}</h2>
+          <h5>{{request.user.accountnumber.account_number}}</h5>
+        </div>
+
+        <ul class="profile-list">
+          <li>
+            <a href="{% url 'my-account' %}" class="profile-box">
+              <div class="profile-img">
+                <i class="icon" data-feather="user"></i>
+              </div>
+              <div class="profile-details">
+                <h4>My Account</h4>
+                <img
+                  class="img-fluid arrow"
+                  src="{% static 'assets/images/svg/arrow.svg' %}"
+                  alt="arrow"
+                />
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'cards' %}" class="profile-box">
+              <div class="profile-img">
+                <i class="icon" data-feather="credit-card"></i>
+              </div>
+              <div class="profile-details">
+                <h4>My Cards</h4>
+                <img
+                  class="img-fluid arrow"
+                  src="{% static 'assets/images/svg/arrow.svg' %}"
+                  alt="arrow"
+                />
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'pin-validation' %}" class="profile-box">
+              <div class="profile-img">
+                <i class="icon" data-feather="lock"></i>
+              </div>
+              <div class="profile-details">
+                <h4>Pin</h4>
+                <img
+                  class="img-fluid arrow"
+                  src="{% static 'assets/images/svg/arrow.svg' %}"
+                  alt="arrow"
+                />
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'change-password' %}" class="profile-box">
+              <div class="profile-img">
+                <i class="icon" data-feather="settings"></i>
+              </div>
+              <div class="profile-details">
+                <h4>Change Password</h4>
+                <img
+                  class="img-fluid arrow"
+                  src="{% static 'assets/images/svg/arrow.svg' %}"
+                  alt="arrow"
+                />
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'setting' %}" class="profile-box">
+              <div class="profile-img">
+                <i class="icon" data-feather="lock"></i>
+              </div>
+              <div class="profile-details">
+                <h4>Settings</h4>
+                <img
+                  class="img-fluid arrow"
+                  src="{% static 'assets/images/svg/arrow.svg' %}"
+                  alt="arrow"
+                />
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'help' %}" class="profile-box">
+              <div class="profile-img">
+                <i class="icon" data-feather="help-circle"></i>
+              </div>
+              <div class="profile-details">
+                <h4>Help Center</h4>
+                <img
+                  class="img-fluid arrow"
+                  src="{% static 'assets/images/svg/arrow.svg' %}"
+                  alt="arrow"
+                />
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'logout' %}" class="profile-box">
+              <div class="profile-img">
+                <i class="icon" data-feather="log-out"></i>
+              </div>
+              <div class="profile-details">
+                <h4>Log Out</h4>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- profile section end -->
+
+    <!-- panel-space start -->
+    <section class="panel-space"></section>
+    <!-- panel-space end -->
+
+    <!-- bottom navbar start -->
+    <div class="navbar-menu">
+      <div class="scanner-bg">
+        <a href="#" class="scanner-btn">
+          <img
+            class="img-fluid"
+            src="{% static 'assets/images/svg/scan.svg' %}"
+            alt="scan"
+          />
+        </a>
+      </div>
+
+      <ul>
+        <li>
+          <a href="{% url 'dashboard' %}">
+            <div class="icon">
+              <img
+                class="unactive"
+                src="{% static 'assets/images/svg/Chaseitb bank.svg' %}"
+                alt="Chaseitb bank"
+              />
+              <img
+                class="active"
+                src="{% static 'assets/images/svg/Chaseitb bank-fill.svg' %}"
+                alt="Chaseitb bank"
+              />
+            </div>
+            <h5>Chaseitb bank</h5>
+          </a>
+        </li>
+
+        <li>
+          <a href="{% url 'crypto' %}">
+            <div class="icon">
+              <img
+                class="unactive"
+                src="{% static 'assets/images/svg/bitcoin.svg' %}"
+                alt="categories"
+              />
+              <img
+                class="active"
+                src="{% static 'assets/images/svg/bitcoin-fill.svg' %}"
+                alt="categories"
+              />
+            </div>
+            <h5>Crypto</h5>
+          </a>
+        </li>
+
+        <li></li>
+
+        <li>
+          <a href="{% url 'insight' %}">
+            <div class="icon">
+              <img
+                class="unactive"
+                src="{% static 'assets/images/svg/bar-chart.svg' %}"
+                alt="bag"
+              />
+              <img
+                class="active"
+                src="{% static 'assets/images/svg/bar-chart-fill.svg' %}"
+                alt="bag"
+              />
+            </div>
+            <h5>Insight</h5>
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="{% url 'profile' %}">
+            <div class="icon">
+              <img
+                class="unactive"
+                src="{% static 'assets/images/svg/user.svg' %}"
+                alt="profile"
+              />
+              <img
+                class="active"
+                src="{% static 'assets/images/svg/user-fill.svg' %}"
+                alt="profile"
+              />
+            </div>
+            <h5>Profile</h5>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- bottom navbar end -->
+
+    <!-- swiper js -->
+    <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/custom-swiper.js' %}"></script>
+
+    <!-- feather js -->
+    <script src="{% static 'assets/js/feather.min.js' %}"></script>
+    <script src="{% static 'assets/js/custom-feather.js' %}"></script>
+
+    <!-- bootstrap js -->
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- script js -->
+    <script src="{% static 'assets/js/script.js' %}"></script>
+  </body>
+
+  {% endblock content %}
+</html>
