@@ -100,4 +100,13 @@ class Pin (models.Model):
 
 
 
+class Transaction(models.Model):
+    transactionType = models.CharField(max_length=255, null=True)
+    From = models.ForeignKey(Accountnumber, null=True, on_delete=models.CASCADE)
+    to = models.CharField(max_length=255, null=True)
+    amount = models.IntegerField()
+    currency_sign = models.CharField(max_length=10)
+
+    def __str__(self):
+        return str(self.From)
 

@@ -126,13 +126,13 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 # Emailing settings
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_FROM = 'ajayiohiremen046@gmail.com'
-EMAIL_HOST_USER = 'ajayiohiremen046@gmail.com'
-EMAIL_HOST_PASSWORD = 'ogeaefittohszdbf'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_PORT = 465  # Use port 465 for SSL
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'inuenike@gmail.com'
+EMAIL_HOST_PASSWORD = 'ooxy amwg zmky txgt'
 
 PASSWORD_RESET_TIMEOUT = 14400
 # Default primary key field type

@@ -37,21 +37,42 @@ def activate(request, uidb64, token):
 
 
 
+# def activateEmail(request, user, to_email):
+#     mail_subject = "Activate your user account."
+#     message = render_to_string("bank/template_activate_account.html", {
+#         'user': user.username,
+#         'domain': get_current_site(request).domain,
+#         'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+#         'token': account_activation_token.make_token(user),
+#         "protocol": 'https' if request.is_secure() else 'http'
+#     })
+#     email = EmailMessage(mail_subject, message, to=[to_email])
+#     if email.send():
+#         messages.success(request, f'Dear <b>{user}</b>, please go to you email <b>{to_email}</b> inbox and click on \
+#                 received activation link to confirm and complete the registration. <b>Note:</b> Check your spam folder.')
+#     else:
+#         messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly.')
+
+
 def activateEmail(request, user, to_email):
-    mail_subject = "Activate your user account."
-    message = render_to_string("bank/template_activate_account.html", {
-        'user': user.username,
-        'domain': get_current_site(request).domain,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': account_activation_token.make_token(user),
-        "protocol": 'https' if request.is_secure() else 'http'
-    })
-    email = EmailMessage(mail_subject, message, to=[to_email])
-    if email.send():
-        messages.success(request, f'Dear <b>{user}</b>, please go to you email <b>{to_email}</b> inbox and click on \
-                received activation link to confirm and complete the registration. <b>Note:</b> Check your spam folder.')
-    else:
-        messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly.')
+    try:
+        mail_subject = "Activate your user account."
+        message = render_to_string("bank/template_activate_account.html", {
+            'user': user.username,
+            'domain': get_current_site(request).domain,
+            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            'token': account_activation_token.make_token(user),
+            "protocol": 'https' if request.is_secure() else 'http'
+        })
+        email = EmailMessage(mail_subject, message, to=[to_email])
+        
+        if email.send():
+            messages.success(request, f'Dear <b>{user.username}</b>, please go to your email <b>{to_email}</b> inbox and click on the received activation link to confirm and complete the registration. <b>Note:</b> Check your spam folder.')
+        else:
+            messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly.')
+    except Exception as e:
+        messages.error(request, f'An error occurred while sending the activation email: {str(e)}')
+    return redirect('bank/template_activate_account.html')  # Replace 'some_view_name' with the actual view name where you want to redirect
 
 def template_activate_account(request):
     context = {}
@@ -323,7 +344,13 @@ def terms_conditions( request):
 
 @login_required (login_url = "login")
 def transaction_history( request):
-    return render (request, 'bank/transaction-history.html') 
+   # Assuming you have a way to determine the current user's account
+    current_account = request.user.accountnumber  # Adjust this according to your actual model structure
+
+    transactions = Transaction.objects.filter(From=current_account)
+
+    context = {'transactions': transactions}
+    return render (request, 'bank/transaction-history.html', context) 
 
 @login_required (login_url = "login")
 def transfer( request):
